@@ -1,0 +1,29 @@
+{
+  "required": true,
+  "package": "com.github.Debris.ModernMite.mixins",
+  "compatibilityLevel": "JAVA_17",
+  "target": "DEFAULT",
+  "minVersion": "0.8.3",
+  "injectors": {
+    "defaultRequire": 1
+  },
+  "mixins": [
+    "compat.EMICompat",
+    "container.ContainerEnchantmentMixin",
+    "container.ContainerMerchantMixin",
+    "container.ContainerMixin",
+    "container.ContainerRepairMixin",
+    "container.MITEContainerCraftingMixin",
+    "entity.ClientPlayerMixin",
+    "gui.GuiContainerMixin",
+    "gui.GuiOptionsMixin",
+    "gui.GuiTextFieldMixin",
+    "lang.LanguageManagerMixin",
+    "misc.GameSettingsMixin",
+    "misc.LogAgentMixin",
+    "misc.MinecraftMixin",
+    "misc.MovementFromOptionsMixin",
+    "render.FontRendererMixin"
+  ],
+  "plugin": "com.github.Debris.ModernMite.compat.MixinPlugin"
+}

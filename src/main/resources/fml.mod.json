@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "id": "modern-mite",
+  "version": "${version}",
+  "depends": {
+    "fishmodloader": ">=3.4.0",
+    "many-lib": ">=2.2.0"
+  },
+  "environment": "*",
+  "name": "ModernMite",
+  "description": "Fix some bugs of mite, and bring some modern minecraft client features back to 1.6.4\n修复了mite的一些漏洞, 并将一些高版本mc客户端特性带回1.6.4",
+  "authors": [
+    "Debris",
+    "skystardust",
+    "LimingZxc"
+  ],
+  "icon": "assets/ModernMite/icon.png",
+  "entrypoints": {
+    "preLaunch": [
+      "com.github.skystardust.InputMethodBlocker.EarlyRiser"
+    ],
+    "main": [
+      "com.github.Debris.ModernMite.ModernMite",
+      "com.github.skystardust.InputMethodBlocker.InputMethodBlocker"
+    ],
+    "modmenu": [
+      "com.github.Debris.ModernMite.compat.ModMenuImpl"
+    ]
+  },
+  "accessWidener": "ModernMite.accesswidener",
+  "mixins": [
+    "ModernMite.mixins.json"
+  ],
+  "custom": {
+    "modmenu:parent": "many-lib"
+  }
+}
