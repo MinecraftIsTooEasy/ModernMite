@@ -12,7 +12,7 @@ import static com.github.Debris.ModernMite.ModernMite.MOD_ID;
 public class ModernMiteConfig extends SimpleConfigs {
     private static final ModernMiteConfig Instance;
     public static final List<ConfigBase<?>> clientTweaks;
-//    public static final List<ConfigBase<?>> clientFix;
+    public static final List<ConfigBase<?>> clientFix;
     public static final List<ConfigBase<?>> serverTweaks;
 //    public static final List<ConfigBase<?>> serverFix;
     public static final List<ConfigBase<?>> values = new ArrayList<>();
@@ -29,7 +29,7 @@ public class ModernMiteConfig extends SimpleConfigs {
     public static final ConfigBoolean NoReferenceFile = new ConfigBoolean("NoReferenceFile", true, "即MITE/reference目录的文件, 这会稍微提升游戏启动速度");
 
     // client fix
-//    public static final ConfigBoolean ReadStringFix = new ConfigBoolean("字符串长度修复", true, "服务器中, readString导致玩家退出的问题");
+    public static final ConfigBoolean ResourceLocationFix = new ConfigBoolean("资源定位修复", true, "空指针问题");
 
     // hotkey
 
@@ -46,7 +46,7 @@ public class ModernMiteConfig extends SimpleConfigs {
 
     static {
         clientTweaks = List.of(ASCIIFont, IMBlocker, ForceEnableInputMethodGuiScreens, SlashIM, NoSpamLog, NoAttackDump, SprintingMode, NoReferenceFile);
-//        clientFix = List.of(ReadStringFix);
+        clientFix = List.of(ResourceLocationFix);
         serverTweaks = List.of(BetterContainerQuitting);
 //        serverFix = List.of();
         values.addAll(clientTweaks);
@@ -55,7 +55,7 @@ public class ModernMiteConfig extends SimpleConfigs {
 //        values.addAll(serverFix);
         hotkeys = List.of(OpenWindow);
         configTabs.add(new ConfigTab("客户端功能", clientTweaks));
-//        configTabs.add(new ConfigTab("客户端修复", clientFix));
+        configTabs.add(new ConfigTab("客户端修复", clientFix));
         configTabs.add(new ConfigTab("热键", hotkeys));
         configTabs.add(new ConfigTab("服务端功能", serverTweaks));
 //        configTabs.add(new ConfigTab("服务端修复", serverFix));

@@ -15,15 +15,13 @@
     "container.ContainerRepairMixin",
     "container.MITEContainerCraftingMixin",
     "entity.ClientPlayerMixin",
-    "gui.GuiContainerMixin",
+    "fix.ResourceLocationFix",
     "gui.GuiOptionsMixin",
     "gui.GuiTextFieldMixin",
     "lang.LanguageManagerMixin",
-    "misc.GameSettingsMixin",
     "misc.LogAgentMixin",
     "misc.MinecraftMixin",
-    "misc.MovementFromOptionsMixin",
-    "render.FontRendererMixin"
+    "misc.MovementFromOptionsMixin"
   ],
   "plugin": "com.github.Debris.ModernMite.compat.MixinPlugin"
 }
