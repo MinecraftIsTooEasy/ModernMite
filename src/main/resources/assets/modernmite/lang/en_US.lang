@@ -1,18 +1,3 @@
-key.inventory_1=Inventory1
-key.inventory_2=Inventory2
-key.inventory_3=Inventory3
-key.inventory_4=Inventory4
-key.inventory_5=Inventory5
-key.inventory_6=Inventory6
-key.inventory_7=Inventory7
-key.inventory_8=Inventory8
-key.inventory_9=Inventory9
-key.personView=Person View
-key.printScreen=Print Screen
-key.redrawChunks=Redraw Chunks
-key.toggleRun=Toggle Run
-key.zoom=Zoom
-
 config.name.IMBlocker=Input Method Fix
 config.name.ForceEnableInputMethodGuiScreens=Class paths of those screens needs activating the IM(Chinese)
 
@@ -27,6 +12,9 @@ config.name.SprintingMode=Sprinting Mode
 
 config.name.NoReferenceFile=No Reference File
 config.comment.NoReferenceFile=The files in MITE/reference.
+
+config.name.VanillaChat=Vanilla Chat
+config.comment.VanillaChat=Opens the chat gui to pause player behavior and no longer locks the mouse pointer
 
 config.enum.SprintingMode.Press=Press
 config.enum.SprintingMode.Toggle=Toggle

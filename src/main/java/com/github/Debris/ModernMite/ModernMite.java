@@ -4,6 +4,7 @@ import com.github.Debris.ModernMite.config.ModernMiteConfigEarly;
 import com.github.Debris.ModernMite.config.ModernMiteInitHandler;
 import fi.dy.masa.malilib.event.InitializationHandler;
 import net.fabricmc.api.ModInitializer;
+import net.xiaoyu233.fml.ModResourceManager;
 import net.xiaoyu233.fml.config.ConfigRegistry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -17,6 +18,7 @@ public class ModernMite implements ModInitializer {
     @Override
     public void onInitialize() {
         InitializationHandler.getInstance().registerInitializationHandler(new ModernMiteInitHandler());
+        ModResourceManager.addResourcePackDomain("modernmite");
     }
 
     @Override

@@ -30,4 +30,9 @@ public class NativeUtils {
     private static native void inactiveInputMethod(String windowName);
 
     private static native void activeInputMethod(String windowName);
+
+    public static void activeOrInactive(boolean active) {
+        if (active) active("");
+        else inactive("");
+    }
 }

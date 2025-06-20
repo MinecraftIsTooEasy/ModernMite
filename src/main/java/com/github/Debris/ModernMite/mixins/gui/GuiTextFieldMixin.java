@@ -1,20 +1,39 @@
 package com.github.Debris.ModernMite.mixins.gui;
 
+import com.github.Debris.ModernMite.config.ModernMiteConfig;
 import com.github.skystardust.InputMethodBlocker.NativeUtils;
-import net.minecraft.GuiTextField;
+import net.minecraft.*;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(GuiTextField.class)
-public class GuiTextFieldMixin {
+public class GuiTextFieldMixin extends Gui {
+    @Shadow private int maxStringLength;
+
+    @Inject(method = "<init>", at = @At("TAIL"))
+    private void extendMaxLength(FontRenderer i, int j, int k, int l, int par5, CallbackInfo ci) {
+        this.maxStringLength = 256;
+    }
+
     @Inject(method = "setFocused", at = @At("RETURN"))
-    private void inputMethod(boolean par1, CallbackInfo ci) {
-        if (par1) {
-            NativeUtils.active("");
-        } else {
+    private void inputMethod(boolean focused, CallbackInfo ci) {
+        Minecraft client = Minecraft.getMinecraft();
+        GuiScreen current = client.currentScreen;
+        if (!focused) {
             NativeUtils.inactive("");
+            return;
+        }
+        if (ModernMiteConfig.VanillaChat.getBooleanValue()) {
+            if (current instanceof GuiChat guiChat) {
+                boolean isCommand = guiChat.defaultInputFieldText.startsWith("/");
+                boolean disableForCommands = !ModernMiteConfig.SlashIM.getBooleanValue();
+                NativeUtils.activeOrInactive(!(isCommand && disableForCommands));
+            }
+        } else {
+            NativeUtils.active("");
         }
     }
 }

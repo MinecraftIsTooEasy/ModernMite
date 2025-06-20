@@ -19,7 +19,6 @@ public class ModernMiteConfig extends SimpleConfigs {
     public static final List<ConfigHotkey> hotkeys;
 
     // client tweaks
-    public static final ConfigBoolean ASCIIFont = new ConfigBoolean("ASCIIFont", true);
     public static final ConfigBoolean IMBlocker = new ConfigBoolean("IMBlocker", true);
     public static final ConfigStringList ForceEnableInputMethodGuiScreens = new ConfigStringList("强制启用输入法的屏幕的类路径", List.of("net.minecraft.GuiScreenBook", "net.minecraft.GuiEditSign", "net.minecraft.GuiContainerCreative"), null);
     public static final ConfigBoolean SlashIM = new ConfigBoolean("SlashIM");
@@ -27,6 +26,7 @@ public class ModernMiteConfig extends SimpleConfigs {
     public static final ConfigBoolean NoAttackDump = new ConfigBoolean("NoAttackDump", false, "创造模式按下Ctrl攻击时, 不再打开弹窗");
     public static final ConfigEnum<EnumSprintingMode> SprintingMode = new ConfigEnum<>("SprintingMode", EnumSprintingMode.Toggle);
     public static final ConfigBoolean NoReferenceFile = new ConfigBoolean("NoReferenceFile", true, "即MITE/reference目录的文件, 这会稍微提升游戏启动速度");
+    public static final ConfigBoolean VanillaChat = new ConfigBoolean("VanillaChat", false, "打开聊天界面暂停玩家行为，并不再锁定鼠标指针");
 
     // client fix
     public static final ConfigBoolean ResourceLocationFix = new ConfigBoolean("资源定位修复", true, "空指针问题");
@@ -51,7 +51,7 @@ public class ModernMiteConfig extends SimpleConfigs {
     }
 
     static {
-        clientTweaks = List.of(ASCIIFont, IMBlocker, ForceEnableInputMethodGuiScreens, SlashIM, NoSpamLog, NoAttackDump, SprintingMode, NoReferenceFile);
+        clientTweaks = List.of(IMBlocker, ForceEnableInputMethodGuiScreens, SlashIM, NoSpamLog, NoAttackDump, SprintingMode, NoReferenceFile, VanillaChat);
         clientFix = List.of(ResourceLocationFix, CraftingSpeedFix);
         serverTweaks = List.of(BetterContainerQuitting);
         serverFix = List.of(DevCurseFix, CraftingKickFix);

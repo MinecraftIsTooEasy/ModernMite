@@ -14,10 +14,7 @@ public class InputMethodHandler {
 
     public boolean shouldActive(GuiScreen gui) {
         if (gui == null) return false;
-        if (ModernMiteConfig.ForceEnableInputMethodGuiScreens.getStringListValue().contains(gui.getClass().getName())) {
-            return true;
-        }
-        return false;
+        return ModernMiteConfig.ForceEnableInputMethodGuiScreens.getStringListValue().contains(gui.getClass().getName());
     }
 
 }

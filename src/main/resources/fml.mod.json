@@ -14,7 +14,7 @@
     "skystardust",
     "LimingZxc"
   ],
-  "icon": "assets/ModernMite/icon.png",
+  "icon": "assets/modernmite/icon.png",
   "entrypoints": {
     "preLaunch": [
       "com.github.skystardust.InputMethodBlocker.EarlyRiser"
@@ -32,6 +32,8 @@
     "ModernMite.mixins.json"
   ],
   "custom": {
-    "modmenu:parent": "many-lib"
+    "modmenu": {
+      "parent": "many-lib"
+    }
   }
 }

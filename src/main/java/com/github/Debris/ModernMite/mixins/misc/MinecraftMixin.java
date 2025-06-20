@@ -7,6 +7,7 @@ import com.llamalad7.mixinextras.injector.v2.WrapWithCondition;
 import com.llamalad7.mixinextras.injector.wrapoperation.Operation;
 import com.llamalad7.mixinextras.injector.wrapoperation.WrapOperation;
 import net.minecraft.*;
+import net.xiaoyu233.fml.FishModLoader;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
@@ -17,6 +18,14 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class MinecraftMixin {
     @Shadow
     public EntityClientPlayerMP thePlayer;
+    @Shadow
+    public GameSettings gameSettings;
+
+    @Shadow
+    public abstract void displayGuiScreen(GuiScreen par1GuiScreen);
+
+    @Shadow
+    public GuiScreen currentScreen;
 
     @WrapWithCondition(method = "startGame", at = @At(value = "INVOKE", target = "Lnet/minecraft/ReferenceFileWriter;write()V"))
     private boolean doNotWriteReferenceFile() {
@@ -47,6 +56,7 @@ public abstract class MinecraftMixin {
 
     @Inject(method = "openChat", at = @At("TAIL"))
     private void active(GuiChat gui_chat, CallbackInfo ci) {
+        if (ModernMiteConfig.VanillaChat.getBooleanValue()) return;
         if (gui_chat.defaultInputFieldText.startsWith("/") && !ModernMiteConfig.SlashIM.getBooleanValue()) {
             NativeUtils.inactive("");
         } else {
@@ -56,11 +66,24 @@ public abstract class MinecraftMixin {
 
     @Inject(method = "closeImposedChat", at = @At("HEAD"))
     private void inactive(CallbackInfo ci) {
+        if (ModernMiteConfig.VanillaChat.getBooleanValue()) return;
         NativeUtils.inactive("");
     }
 
     @WrapOperation(method = "clickMouse", at = @At(value = "INVOKE", target = "Lnet/minecraft/GuiScreen;isCtrlKeyDown()Z", ordinal = 0))
     private boolean noAttackDump(Operation<Boolean> original) {
         return !ModernMiteConfig.NoAttackDump.getBooleanValue() && original.call();
+    }
+
+    @Inject(method = "runTick", at = @At("TAIL"))
+    public void allowsImposedChat(CallbackInfo ci) {
+        if (!ModernMiteConfig.VanillaChat.getBooleanValue()) return;
+        while (this.gameSettings.keyBindChat.isPressed() && this.gameSettings.chatVisibility != 2) {
+            this.displayGuiScreen(new GuiChat());
+        }
+
+        if (this.currentScreen == null && this.gameSettings.keyBindCommand.isPressed() && this.gameSettings.chatVisibility != 2) {
+            this.displayGuiScreen(new GuiChat("/"));
+        }
     }
 }
