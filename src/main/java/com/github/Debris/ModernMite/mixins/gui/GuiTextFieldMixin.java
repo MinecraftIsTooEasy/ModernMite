@@ -19,16 +19,13 @@ public class GuiTextFieldMixin extends Gui {
     }
 
     @Inject(method = "setFocused", at = @At("RETURN"))
-    private void inputMethod(boolean focused, CallbackInfo ci) {
+    private void inputMethodBlocker(boolean focused, CallbackInfo ci) {
         Minecraft client = Minecraft.getMinecraft();
-        GuiScreen current = client.currentScreen;
-        if (!focused) {
-            NativeUtils.inactive("");
-            return;
-        }
+        GuiScreen screen = client.currentScreen;
+        NativeUtils.activeOrInactive(focused);
         if (ModernMiteConfig.VanillaChat.getBooleanValue()) {
-            if (current instanceof GuiChat guiChat) {
-                boolean isCommand = guiChat.defaultInputFieldText.startsWith("/");
+            if (screen instanceof GuiChat chatScreen) {
+                boolean isCommand = chatScreen.defaultInputFieldText.startsWith("/");
                 boolean disableForCommands = !ModernMiteConfig.SlashIM.getBooleanValue();
                 NativeUtils.activeOrInactive(!(isCommand && disableForCommands));
             }

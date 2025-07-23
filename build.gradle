@@ -8,7 +8,7 @@ group = project.maven_group
 
 base {
 //    archivesName = project.archives_base_name
-    archivesName = "[现代化Mite]ModernMite"
+    archivesName = "[现代化MITE]ModernMITE"
 }
 
 repositories {
@@ -22,7 +22,7 @@ repositories {
 loom {
     accessWidenerPath = file("src/main/resources/ModernMite.accesswidener")
     mergedMinecraftJar()
-    setFML(new File("D:\\Code\\Java\\FML3.0.0\\lib\\FishModLoader.jar"))
+    setFML(new File("D:\\Projects\\IDEA\\Minecraft\\MITE\\FishModLoader-v3.4.1.jar"))
     mods {
         "ModernMite" {
             sourceSet sourceSets.main
@@ -41,18 +41,23 @@ dependencies {
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
     implementation files(loom.getFML().toPath())
-    implementation files("D:\\Code\\Java\\FML3.0.0\\lib\\ManyLib.jar")
-//    implementation files("D:\\Code\\Java\\FML3.0.0\\lib\\MaLiLib-Mite.jar")
-    implementation files("D:\\Code\\Java\\FML3.0.0\\lib\\ommc.jar")
-    implementation files("D:\\Code\\Java\\FML3.0.0\\lib\\GammaFree.jar")
-    implementation files("D:\\Code\\Java\\FML3.0.0\\lib\\Neodymium.jar")
-    implementation files("D:\\Code\\Java\\FML3.0.0\\lib\\EMI.jar")
-    implementation files("D:\\Code\\Java\\FML3.0.0\\lib\\ModMenu.jar")
-    implementation files("D:\\Code\\Java\\FML3.0.0\\lib\\PinIn-Lib.jar")
-    implementation files("D:\\Code\\Java\\FML3.0.0\\lib\\ModMenu.jar")
-    implementation files("D:\\Code\\Java\\FML3.0.0\\lib\\ExtraGui.jar")
-    implementation files("D:\\Code\\Java\\FML3.0.0\\lib\\RustedIronCore.jar")
+    implementation files("libs\\ManyLib.jar")
+////    implementation files("D:\\Code\\Java\\FML3.0.0\\lib\\MaLiLib-Mite.jar")
+//    implementation files("D:\\Code\\Java\\FML3.0.0\\lib\\ommc.jar")
+//    implementation files("D:\\Code\\Java\\FML3.0.0\\lib\\GammaFree.jar")
+//    implementation files("D:\\Code\\Java\\FML3.0.0\\lib\\Neodymium.jar")
+//    implementation files("D:\\Code\\Java\\FML3.0.0\\lib\\EMI.jar")
+//    implementation files("D:\\Code\\Java\\FML3.0.0\\lib\\ModMenu.jar")
+//    implementation files("D:\\Code\\Java\\FML3.0.0\\lib\\PinIn-Lib.jar")
+//    implementation files("D:\\Code\\Java\\FML3.0.0\\lib\\ModMenu.jar")
+//    implementation files("D:\\Code\\Java\\FML3.0.0\\lib\\ExtraGui.jar")
+//    implementation files("D:\\Code\\Java\\FML3.0.0\\lib\\RustedIronCore.jar")
     implementation files("D:\\Code\\Java\\FML3.0.0\\lib\\RustedIronCore-sources.jar")
+    implementation files("D:\\Projects\\IDEA\\Minecraft\\MITE\\emi-1.1.23+1.6.4-MITE+fish.jar")
+    implementation files("D:\\Projects\\IDEA\\Minecraft\\MITE\\RustedIronCore-1.3.9.jar")
+    implementation files("D:\\Projects\\IDEA\\Minecraft\\MITE\\ModMenu-10.1.1.jar")
+    implementation("com.google.code.gson:gson:2.11.0")
+    implementation("it.unimi.dsi:fastutil:8.5.12")
 }
 
 processResources {

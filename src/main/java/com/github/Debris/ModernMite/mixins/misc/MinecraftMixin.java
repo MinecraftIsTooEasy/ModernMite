@@ -46,22 +46,14 @@ public abstract class MinecraftMixin {
     }
 
     @Inject(method = "displayGuiScreen", at = @At("HEAD"))
-    private void chatFix(GuiScreen gui, CallbackInfo ci) {
-        if (InputMethodHandler.getInstance().shouldActive(gui)) {
-            NativeUtils.active("");
-        } else {
-            NativeUtils.inactive("");
-        }
+    private void chatFix(GuiScreen screen, CallbackInfo ci) {
+        NativeUtils.activeOrInactive(InputMethodHandler.getInstance().shouldActive(screen));
     }
 
     @Inject(method = "openChat", at = @At("TAIL"))
-    private void active(GuiChat gui_chat, CallbackInfo ci) {
+    private void active(GuiChat chatScreen, CallbackInfo ci) {
         if (ModernMiteConfig.VanillaChat.getBooleanValue()) return;
-        if (gui_chat.defaultInputFieldText.startsWith("/") && !ModernMiteConfig.SlashIM.getBooleanValue()) {
-            NativeUtils.inactive("");
-        } else {
-            NativeUtils.active("");
-        }
+        NativeUtils.activeOrInactive(!(chatScreen.defaultInputFieldText.startsWith("/") && !ModernMiteConfig.SlashIM.getBooleanValue()));
     }
 
     @Inject(method = "closeImposedChat", at = @At("HEAD"))

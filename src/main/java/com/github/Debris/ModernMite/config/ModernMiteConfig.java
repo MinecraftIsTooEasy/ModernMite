@@ -42,6 +42,7 @@ public class ModernMiteConfig extends SimpleConfigs {
     // server fix
     public static final ConfigBoolean DevCurseFix = new ConfigBoolean("Dev诅咒修复", true);
     public static final ConfigBoolean CraftingKickFix = new ConfigBoolean("合成踢出修复", true);
+    public static final ConfigBoolean BoatFallDamageFix = new ConfigBoolean("乘船摔伤修复", false, "乘船时免受摔落伤害");
 
 
     public static final List<ConfigTab> configTabs = new ArrayList<>();
@@ -54,7 +55,7 @@ public class ModernMiteConfig extends SimpleConfigs {
         clientTweaks = List.of(IMBlocker, ForceEnableInputMethodGuiScreens, SlashIM, NoSpamLog, NoAttackDump, SprintingMode, NoReferenceFile, VanillaChat);
         clientFix = List.of(ResourceLocationFix, CraftingSpeedFix);
         serverTweaks = List.of(BetterContainerQuitting);
-        serverFix = List.of(DevCurseFix, CraftingKickFix);
+        serverFix = List.of(DevCurseFix, CraftingKickFix, BoatFallDamageFix);
         values.addAll(clientTweaks);
 //        values.addAll(clientFix);
         values.addAll(serverTweaks);
