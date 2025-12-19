@@ -1,9 +1,7 @@
 package com.github.skystardust.InputMethodBlocker.compat;
 
-import com.github.Debris.ModernMite.config.ModernMiteConfig;
-import net.minecraft.GuiContainer;
+import moddedmite.modernmite.config.ModernMiteConfig;
 import net.minecraft.GuiScreen;
-import net.xiaoyu233.fml.FishModLoader;
 
 public class InputMethodHandler {
     private static final InputMethodHandler Instance = new InputMethodHandler();
