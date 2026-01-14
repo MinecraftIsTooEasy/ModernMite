@@ -1,4 +1,4 @@
-package moddedmite.modernmite.mixins.misc;
+package moddedmite.modernmite.mixins;
 
 import moddedmite.modernmite.config.ModernMiteConfig;
 import net.minecraft.LogAgent;

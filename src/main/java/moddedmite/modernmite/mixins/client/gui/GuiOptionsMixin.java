@@ -1,4 +1,4 @@
-package moddedmite.modernmite.mixins.gui;
+package moddedmite.modernmite.mixins.client.gui;
 
 import net.minecraft.GuiOptions;
 import net.minecraft.GuiScreen;

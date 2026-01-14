@@ -27,6 +27,7 @@ public class ModernMiteConfig extends SimpleConfigs {
     public static final ConfigEnum<EnumSprintingMode> SprintingMode = new ConfigEnum<>("SprintingMode", EnumSprintingMode.Toggle);
     public static final ConfigBoolean NoReferenceFile = new ConfigBoolean("NoReferenceFile", true, "即MITE/reference目录的文件, 这会稍微提升游戏启动速度");
     public static final ConfigBoolean VanillaChat = new ConfigBoolean("VanillaChat", false, "打开聊天界面暂停玩家行为，并不再锁定鼠标指针");
+    public static final ConfigBoolean ModChangeWarning = new ConfigBoolean("模组更改警告", true, "当你更改模组后进入旧存档时会警告");
 
     // client fix
     public static final ConfigBoolean ResourceLocationFix = new ConfigBoolean("资源定位修复", true, "空指针问题");
@@ -53,7 +54,17 @@ public class ModernMiteConfig extends SimpleConfigs {
     }
 
     static {
-        clientTweaks = List.of(IMBlocker, ForceEnableInputMethodGuiScreens, SlashIM, NoSpamLog, NoAttackDump, SprintingMode, NoReferenceFile, VanillaChat);
+        clientTweaks = List.of(
+                IMBlocker,
+                ForceEnableInputMethodGuiScreens,
+                SlashIM,
+                NoSpamLog,
+                NoAttackDump,
+                SprintingMode,
+                NoReferenceFile,
+                VanillaChat,
+                ModChangeWarning
+        );
         clientFix = List.of(ResourceLocationFix, CraftingSpeedFix, Packet24Fix);
         serverTweaks = List.of(BetterContainerQuitting);
         serverFix = List.of(DevCurseFix, CraftingKickFix, BoatFallDamageFix);

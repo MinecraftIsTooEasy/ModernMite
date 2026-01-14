@@ -1,4 +1,4 @@
-package moddedmite.modernmite.mixins.misc;
+package moddedmite.modernmite.mixins.client;
 
 import moddedmite.modernmite.config.EnumSprintingMode;
 import moddedmite.modernmite.config.ModernMiteConfig;

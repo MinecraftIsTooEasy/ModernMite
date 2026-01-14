@@ -8,6 +8,13 @@
     "defaultRequire": 1
   },
   "mixins": [
+    "LogAgentMixin",
+    "SaveHandlerMixin",
+    "client.MinecraftMixin",
+    "client.MovementFromOptionsMixin",
+    "client.gui.GuiOptionsMixin",
+    "client.gui.GuiSelectWorldMixin",
+    "client.gui.GuiTextFieldMixin",
     "compat.EMICompat",
     "container.ContainerEnchantmentMixin",
     "container.ContainerMerchantMixin",
@@ -21,11 +28,6 @@
     "fix.DevCurseFix",
     "fix.ResourceLocationFix",
     "fix.StatFix",
-    "gui.GuiOptionsMixin",
-    "gui.GuiTextFieldMixin",
-    "misc.LogAgentMixin",
-    "misc.MinecraftMixin",
-    "misc.MovementFromOptionsMixin",
     "network.NetClientHandlerMixin"
   ],
   "plugin": "moddedmite.modernmite.compat.MixinPlugin"

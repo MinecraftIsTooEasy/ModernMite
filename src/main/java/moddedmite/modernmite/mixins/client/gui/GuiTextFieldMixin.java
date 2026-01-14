@@ -1,4 +1,4 @@
-package moddedmite.modernmite.mixins.gui;
+package moddedmite.modernmite.mixins.client.gui;
 
 import moddedmite.modernmite.config.ModernMiteConfig;
 import com.github.skystardust.InputMethodBlocker.NativeUtils;

@@ -3,7 +3,6 @@ config.name.ForceEnableInputMethodGuiScreens=Class paths of those screens needs 
 
 config.name.SlashIM=Slash Activates IM
 config.name.NoSpamLog=No Spam Log
-config.name.TNTFix=TNT Dupe Fix
 
 config.name.NoAttackDump=No Attack Dump
 config.comment.NoAttackDump=Wont dump the report when attacking entities with Ctrl pressed
