@@ -1,26 +1,28 @@
 package com.github.Debris.ModernMite.mixins.fix;
 
-import com.llamalad7.mixinextras.injector.ModifyReturnValue;
-import com.llamalad7.mixinextras.sugar.Local;
 import net.minecraft.StatBase;
 import net.minecraft.StatList;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Overwrite;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(StatList.class)
+@Mixin(value = StatList.class, priority = 999)
 public abstract class StatFix {
-    @ModifyReturnValue(method = "isEitherZeroOrOne", at = @At("TAIL"))
-    private static boolean fixStatNull_0(boolean original, @Local(argsOnly = true) StatBase stat) {
-        if (stat != null) return original;
-        return false;
+    @Shadow public static StatBase minutesPlayedStat;
+
+    @Overwrite
+    public static boolean isEitherZeroOrOne(StatBase stat) {
+        if (stat == null) return false;
+        return stat.isAchievement();
     }
 
-    @ModifyReturnValue(method = "hasLongValue", at = @At("TAIL"))
-    private static boolean fixStatNull_1(boolean original, @Local(argsOnly = true) StatBase stat) {
-        if (stat != null) return original;
-        return false;
+    @Overwrite
+    public static boolean hasLongValue(StatBase stat) {
+        if (stat == null) return false;
+        return stat.getType() == StatBase.distanceStatType || stat == minutesPlayedStat;
     }
 
     @Inject(method = "replaceSimilarBlocks",  at = @At("HEAD"), cancellable = true)
