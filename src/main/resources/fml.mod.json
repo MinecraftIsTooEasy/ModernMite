@@ -12,7 +12,8 @@
   "authors": [
     "Debris",
     "skystardust",
-    "LimingZxc"
+    "LimingZxc",
+    "Xy_Lose"
   ],
   "icon": "assets/modernmite/icon.png",
   "entrypoints": {
@@ -20,20 +21,15 @@
       "com.github.skystardust.InputMethodBlocker.EarlyRiser"
     ],
     "main": [
-      "com.github.Debris.ModernMite.ModernMite",
+      "moddedmite.modernmite.ModernMite",
       "com.github.skystardust.InputMethodBlocker.InputMethodBlocker"
     ],
     "modmenu": [
-      "com.github.Debris.ModernMite.compat.ModMenuImpl"
+      "moddedmite.modernmite.compat.ModMenuImpl"
     ]
   },
   "accessWidener": "ModernMite.accesswidener",
   "mixins": [
     "ModernMite.mixins.json"
-  ],
-  "custom": {
-    "modmenu": {
-      "parent": "many-lib"
-    }
-  }
+  ]
 }

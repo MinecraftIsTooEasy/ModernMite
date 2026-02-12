@@ -1,6 +1,6 @@
 package com.github.skystardust.InputMethodBlocker;
 
-import com.github.Debris.ModernMite.config.ModernMiteConfig;
+import moddedmite.modernmite.config.ModernMiteConfig;
 
 public class NativeUtils {
     public static boolean available = false;

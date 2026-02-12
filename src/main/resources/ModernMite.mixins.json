@@ -1,6 +1,6 @@
 {
   "required": true,
-  "package": "com.github.Debris.ModernMite.mixins",
+  "package": "moddedmite.modernmite.mixins",
   "compatibilityLevel": "JAVA_17",
   "target": "DEFAULT",
   "minVersion": "0.8.3",
@@ -8,6 +8,13 @@
     "defaultRequire": 1
   },
   "mixins": [
+    "LogAgentMixin",
+    "SaveHandlerMixin",
+    "client.MinecraftMixin",
+    "client.MovementFromOptionsMixin",
+    "client.gui.GuiOptionsMixin",
+    "client.gui.GuiSelectWorldMixin",
+    "client.gui.GuiTextFieldMixin",
     "compat.EMICompat",
     "container.ContainerEnchantmentMixin",
     "container.ContainerMerchantMixin",
@@ -21,11 +28,7 @@
     "fix.DevCurseFix",
     "fix.ResourceLocationFix",
     "fix.StatFix",
-    "gui.GuiOptionsMixin",
-    "gui.GuiTextFieldMixin",
-    "misc.LogAgentMixin",
-    "misc.MinecraftMixin",
-    "misc.MovementFromOptionsMixin"
+    "network.NetClientHandlerMixin"
   ],
-  "plugin": "com.github.Debris.ModernMite.compat.MixinPlugin"
+  "plugin": "moddedmite.modernmite.compat.MixinPlugin"
 }
