@@ -33,6 +33,7 @@ public class ModernMiteConfig extends SimpleConfigs {
     public static final ConfigBoolean ResourceLocationFix = new ConfigBoolean("资源定位修复", true, "空指针问题");
     public static final ConfigBoolean CraftingSpeedFix = new ConfigBoolean("合成速度修复", true);
     public static final ConfigBoolean Packet24Fix = new ConfigBoolean("网络包24修复", true);
+    public static final ConfigBoolean BlockMITEWebRequests = new ConfigBoolean("屏蔽MITE网站请求", true, "屏蔽游戏对 minecraft-is-too-easy.com 的网络请求及相关网页跳转，可消除杀毒软件误报");
 
     // hotkey
 
@@ -65,7 +66,7 @@ public class ModernMiteConfig extends SimpleConfigs {
                 VanillaChat,
                 ModChangeWarning
         );
-        clientFix = List.of(ResourceLocationFix, CraftingSpeedFix, Packet24Fix);
+        clientFix = List.of(ResourceLocationFix, CraftingSpeedFix, Packet24Fix, BlockMITEWebRequests);
         serverTweaks = List.of(BetterContainerQuitting);
         serverFix = List.of(DevCurseFix, CraftingKickFix, BoatFallDamageFix);
         values.addAll(clientTweaks);

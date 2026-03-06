@@ -3,3 +3,5 @@ accessible field net/minecraft/GuiContainer theSlot Lnet/minecraft/Slot;
 accessible method net/minecraft/GuiContainer handleMouseClick (Lnet/minecraft/Slot;III)V
 accessible field net/minecraft/GuiChat defaultInputFieldText Ljava/lang/String;
 accessible field net/minecraft/Packet field_98193_m Lnet/minecraft/ILogAgent;
+accessible class net/minecraft/GetPublicServers
+accessible class net/minecraft/CopyFileFromURL
