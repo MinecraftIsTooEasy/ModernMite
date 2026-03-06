@@ -1,18 +1,16 @@
-package moddedmite.modernmite.mixins.fix;
+package moddedmite.modernmite.mixins.fix.web;
 
 import moddedmite.modernmite.config.ModernMiteConfig;
-
-import net.minecraft.GetPublicServers;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-@Mixin(GetPublicServers.class)
-public class BlockMITEWebRequestsMixin {
+@Mixin(targets = "net.minecraft.Notification")
+public class NotificationMixin {
 
     @Inject(method = "run", at = @At("HEAD"), cancellable = true)
-    private void blockPublicServersDownload(CallbackInfo ci)
+    private void blockNotification(CallbackInfo ci)
     {
         if (ModernMiteConfig.BlockMITEWebRequests.getBooleanValue())
         {
