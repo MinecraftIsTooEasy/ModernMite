@@ -1,5 +1,5 @@
 plugins {
-    id 'fml-loom' version '0.1.local'
+    id 'fml-loom' version '0.1'
     id 'maven-publish'
 }
 
@@ -7,52 +7,63 @@ version = project.mod_version
 group = project.maven_group
 
 base {
-//    archivesName = project.archives_base_name
-    archivesName = "[现代化MITE]ModernMITE"
+    archivesName = "[现代化MITE]" + project.archives_base_name
 }
 
 repositories {
-    mavenLocal()
+    // Add repositories to retrieve artifacts from in here.
+    // You should only use this when depending on other mods because
+    // Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
+    // See https://docs.gradle.org/current/userguide/declaring_repositories.html
+    // for more information about repositories.
     maven {
-        name = "Spongepowered"
-        url = "https://repo.spongepowered.org/repository/maven-public/"
+        name = "ModdedMITE"
+        url = uri("https://maven.limingzxc.top/repository/maven-public/")
     }
 }
 
-loom {
-    accessWidenerPath = file("src/main/resources/ModernMite.accesswidener")
-    mergedMinecraftJar()
-    setFML(new File("${lib_dir}/${fish_mod_loader}"))
-    mods {
-        "ModernMite" {
-            sourceSet sourceSets.main
-        }
-    }
-
-}
-
-runClient {
-    args("--username", "De6ris", "--session", "a.a.a.a", "--width", 854, "--height", 480)
+configurations {
+    fml
 }
 
 dependencies {
+    // To change the versions see the gradle.properties file
+
     minecraft "com.mojang:minecraft:${project.minecraft_version}"
-    mappings loom.fmlMCPMappings()
     modImplementation "net.fabricmc:fabric-loader:${project.loader_version}"
 
-    implementation files(loom.getFML().toPath())
-    implementation files("${lib_dir}/ManyLib.jar")
-    implementation files("${lib_dir}/RustedIronCore.jar")
-    implementation files("${lib_dir}/RustedIronCore-sources.jar")
+    fml "com.github.MinecraftIsTooEasy:FishModLoader:3.4.2"
+    implementation "com.github.MinecraftIsTooEasy:FishModLoader:3.4.2"
 
+    implementation "com.github.MinecraftIsTooEasy:RustedIronCore:1.5.0"
+    implementation "com.github.MinecraftIsTooEasy:RustedIronCore:1.5.0:sources"
 
-    implementation files("${lib_dir}/emi.jar")
-    implementation files("${lib_dir}/modmenu.jar")
+    implementation "com.github.MinecraftIsTooEasy:OMMC:1.4.2"
+    implementation "com.github.MinecraftIsTooEasy:ManyLib:2.3.0"
+    implementation "com.github.MinecraftIsTooEasy:ModMenu:10.1.1"
 
-
-    implementation("com.google.code.gson:gson:2.11.0")
-    implementation("it.unimi.dsi:fastutil:8.5.12")
+    implementation "com.github.MinecraftIsTooEasy:EMI:1.1.24"
+    implementation "com.github.MinecraftIsTooEasy:Gson:2.10.1"
+    implementation "com.github.MinecraftIsTooEasy:FastUtil:8.5.12"
 }
+
+def fmlResolvedFile = configurations.fml.files.iterator().next()
+
+loom {
+    if (System.getProperty("os.name").toLowerCase().contains("mac")) {
+        runConfigs.named("client").get().getVmArgs().remove("-XstartOnFirstThread")
+    }
+    accessWidenerPath = file("src/main/resources/ModernMite.accesswidener")
+    mergedMinecraftJar()
+    mods {
+        "${archives_base_name}" {
+            sourceSet sourceSets.main
+        }
+    }
+}
+
+loom.setFML(fmlResolvedFile)
+dependencies.add("mappings", loom.fmlMCPMappings())
 
 processResources {
     inputs.property "version", project.version
@@ -67,6 +78,9 @@ tasks.withType(JavaCompile).configureEach {
 }
 
 java {
+    // Loom will automatically attach sourcesJar to a RemapSourcesJar task and to the "build" task
+    // if it is present.
+    // If you remove this line, sources will not be generated.
     withSourcesJar()
 
     sourceCompatibility = JavaVersion.VERSION_17
@@ -74,21 +88,38 @@ java {
 }
 
 jar {
+    from fileTree("$projectDir/extras/")
+    from("LICENSE") {
+        rename { "${it}_${project.base.archivesName.get()}"}
+    }
+}
 
+tasks.named('runClient', JavaExec).configure { exec ->
+    def user = project.hasProperty('username') ? project.username : 'Dev'
+    exec.setArgs(['--username', user, '--session', '0', '--width', '854', '--height', '480'])
 }
 
 // configure the maven publication
 publishing {
     publications {
         mavenJava(MavenPublication) {
+            groupId = project.maven_group
+            artifactId = project.archives_base_name
+            version = project.mod_version
             from components.java
         }
     }
 
+    // See https://docs.gradle.org/current/userguide/publishing_maven.html for information on how to set up publishing.
     repositories {
-        // Add repositories to publish to here.
-        // Notice: This block does NOT have the same function as the block in the top level.
-        // The repositories here will be used for publishing your artifact, not for
-        // retrieving dependencies.
+        maven {
+            name = "ModdedMITE"
+            url = uri("https://maven.limingzxc.top/repository/maven-releases/")
+            credentials {
+                // Read only from gradle.properties (user level, your gradle_home)
+                username = project.findProperty("nexusUsername")
+                password = project.findProperty("nexusPassword")
+            }
+        }
     }
 }
