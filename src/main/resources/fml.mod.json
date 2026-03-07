@@ -21,7 +21,9 @@
       "com.github.skystardust.InputMethodBlocker.EarlyRiser"
     ],
     "main": [
-      "moddedmite.modernmite.ModernMite",
+      "moddedmite.modernmite.ModernMite"
+    ],
+    "client": [
       "com.github.skystardust.InputMethodBlocker.InputMethodBlocker"
     ],
     "modmenu": [

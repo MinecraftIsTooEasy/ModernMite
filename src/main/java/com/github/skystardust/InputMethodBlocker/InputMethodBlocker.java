@@ -1,12 +1,11 @@
 package com.github.skystardust.InputMethodBlocker;
 
+import net.fabricmc.api.ClientModInitializer;
 
-import net.fabricmc.api.ModInitializer;
+public class InputMethodBlocker implements ClientModInitializer {
 
-
-public class InputMethodBlocker implements ModInitializer {
     @Override
-    public void onInitialize() {
+    public void onInitializeClient() {
         NativeUtils.inactive("");
     }
 }
