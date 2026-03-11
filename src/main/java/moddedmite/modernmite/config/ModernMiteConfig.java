@@ -28,24 +28,28 @@ public class ModernMiteConfig extends SimpleConfigs {
     public static final ConfigBoolean NoReferenceFile = new ConfigBoolean("NoReferenceFile", true, "即MITE/reference目录的文件, 这会稍微提升游戏启动速度");
     public static final ConfigBoolean VanillaChat = new ConfigBoolean("VanillaChat", false, "打开聊天界面暂停玩家行为，并不再锁定鼠标指针");
     public static final ConfigBoolean ModChangeWarning = new ConfigBoolean("模组更改警告", true, "当你更改模组后进入旧存档时会警告");
+    public static final ConfigBoolean BlockMITEWebRequests = new ConfigBoolean("屏蔽MITE网站请求", true, "屏蔽游戏对 minecraft-is-too-easy.com 的网络请求及相关网页跳转，可消除杀毒软件误报");
+
 
     // client fix
     public static final ConfigBoolean ResourceLocationFix = new ConfigBoolean("资源定位修复", true, "空指针问题");
     public static final ConfigBoolean CraftingSpeedFix = new ConfigBoolean("合成速度修复", true);
     public static final ConfigBoolean Packet24Fix = new ConfigBoolean("网络包24修复", true);
-    public static final ConfigBoolean BlockMITEWebRequests = new ConfigBoolean("屏蔽MITE网站请求", true, "屏蔽游戏对 minecraft-is-too-easy.com 的网络请求及相关网页跳转，可消除杀毒软件误报");
+
 
     // hotkey
-
     public static final ConfigHotkey OpenWindow = new ConfigHotkey("打开配置屏幕", "H,C", null);
 
-    // server
+
+    // server tweaks
     public static final ConfigBoolean BetterContainerQuitting = new ConfigBoolean("更好的关闭容器", true, "玩家离开容器时, 物品会先尝试回到背包而不是丢出");
+
 
     // server fix
     public static final ConfigBoolean DevCurseFix = new ConfigBoolean("Dev诅咒修复", true);
     public static final ConfigBoolean CraftingKickFix = new ConfigBoolean("合成踢出修复", true);
     public static final ConfigBoolean BoatFallDamageFix = new ConfigBoolean("乘船摔伤修复", false, "乘船时免受摔落伤害");
+    public static final ConfigBoolean SpiderNPEFix = new ConfigBoolean("蜘蛛空指针修复", true);
 
 
     public static final List<ConfigTab> configTabs = new ArrayList<>();
@@ -64,11 +68,12 @@ public class ModernMiteConfig extends SimpleConfigs {
                 SprintingMode,
                 NoReferenceFile,
                 VanillaChat,
-                ModChangeWarning
+                ModChangeWarning,
+                BlockMITEWebRequests
         );
-        clientFix = List.of(ResourceLocationFix, CraftingSpeedFix, Packet24Fix, BlockMITEWebRequests);
+        clientFix = List.of(ResourceLocationFix, CraftingSpeedFix, Packet24Fix);
         serverTweaks = List.of(BetterContainerQuitting);
-        serverFix = List.of(DevCurseFix, CraftingKickFix, BoatFallDamageFix);
+        serverFix = List.of(DevCurseFix, CraftingKickFix, BoatFallDamageFix, SpiderNPEFix);
         values.addAll(clientTweaks);
         values.addAll(clientFix);
         values.addAll(serverTweaks);

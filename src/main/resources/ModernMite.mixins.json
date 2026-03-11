@@ -22,13 +22,14 @@
     "container.ContainerRepairMixin",
     "container.MITEContainerCraftingMixin",
     "entity.ClientPlayerMixin",
+    "entity.EntityArachnidMixin",
     "fix.BoatFallDamageFix",
     "fix.CraftingKickFix",
     "fix.CraftingSpeedFix",
     "fix.DevCurseFix",
+    "fix.NotificationMixin",
     "fix.ResourceLocationFix",
     "fix.StatFix",
-    "fix.web.NotificationMixin",
     "network.NetClientHandlerMixin"
   ],
   "plugin": "moddedmite.modernmite.compat.MixinPlugin"

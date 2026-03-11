@@ -1,4 +1,4 @@
-package moddedmite.modernmite.mixins.fix.web;
+package moddedmite.modernmite.mixins.fix;
 
 import moddedmite.modernmite.config.ModernMiteConfig;
 import org.spongepowered.asm.mixin.Mixin;
@@ -8,12 +8,9 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(targets = "net.minecraft.Notification")
 public class NotificationMixin {
-
     @Inject(method = "run", at = @At("HEAD"), cancellable = true)
-    private void blockNotification(CallbackInfo ci)
-    {
-        if (ModernMiteConfig.BlockMITEWebRequests.getBooleanValue())
-        {
+    private void blockNotification(CallbackInfo ci) {
+        if (ModernMiteConfig.BlockMITEWebRequests.getBooleanValue()) {
             ci.cancel();
         }
     }
