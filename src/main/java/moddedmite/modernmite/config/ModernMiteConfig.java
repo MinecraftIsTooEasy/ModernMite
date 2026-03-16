@@ -42,7 +42,7 @@ public class ModernMiteConfig extends SimpleConfigs {
 
 
     // server tweaks
-    public static final ConfigBoolean BetterContainerQuitting = new ConfigBoolean("更好的关闭容器", true, "玩家离开容器时, 物品会先尝试回到背包而不是丢出");
+    public static final ConfigBoolean BetterContainerQuitting = new ConfigBoolean("更好的关闭容器", false, "玩家离开容器时, 物品会先尝试回到背包而不是丢出");
 
 
     // server fix
