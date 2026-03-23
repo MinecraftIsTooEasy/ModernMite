@@ -50,6 +50,8 @@ public class ModernMiteConfig extends SimpleConfigs {
     public static final ConfigBoolean CraftingKickFix = new ConfigBoolean("合成踢出修复", true);
     public static final ConfigBoolean BoatFallDamageFix = new ConfigBoolean("乘船摔伤修复", false, "乘船时免受摔落伤害");
     public static final ConfigBoolean SpiderNPEFix = new ConfigBoolean("蜘蛛空指针修复", true);
+    public static final ConfigBoolean NetherStarFix = new ConfigBoolean("下界之星修复", true, "使其对爆炸免疫");
+    public static final ConfigBoolean DeathMessageFix = new ConfigBoolean("死亡信息修复", true, "修复了在服务器上只能翻译一半的问题");
 
 
     public static final List<ConfigTab> configTabs = new ArrayList<>();
@@ -73,7 +75,7 @@ public class ModernMiteConfig extends SimpleConfigs {
         );
         clientFix = List.of(ResourceLocationFix, CraftingSpeedFix, Packet24Fix);
         serverTweaks = List.of(BetterContainerQuitting);
-        serverFix = List.of(DevCurseFix, CraftingKickFix, BoatFallDamageFix, SpiderNPEFix);
+        serverFix = List.of(DevCurseFix, CraftingKickFix, BoatFallDamageFix, SpiderNPEFix, NetherStarFix, DeathMessageFix);
         values.addAll(clientTweaks);
         values.addAll(clientFix);
         values.addAll(serverTweaks);
