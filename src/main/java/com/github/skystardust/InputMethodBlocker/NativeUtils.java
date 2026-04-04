@@ -3,20 +3,22 @@ package com.github.skystardust.InputMethodBlocker;
 import moddedmite.modernmite.config.ModernMiteConfig;
 
 public class NativeUtils {
-    public static boolean available = false;
-
-    private static boolean shouldPerform() {
-        return available && ModernMiteConfig.IMBlocker.getBooleanValue();
+    private static boolean available() {
+        return InputMethodBlocker.available;
     }
 
-    public static void forceInactive(String windowName){
-        if (available) {
+    private static boolean shouldPerform() {
+        return available() && ModernMiteConfig.IMBlocker.getBooleanValue();
+    }
+
+    public static void forceInactive(String windowName) {
+        if (available()) {
             inactiveInputMethod(windowName);
         }
     }
 
     public static void forceActive(String windowName) {
-        if (available) activeInputMethod(windowName);
+        if (available()) activeInputMethod(windowName);
     }
 
     public static void inactive(String windowName) {

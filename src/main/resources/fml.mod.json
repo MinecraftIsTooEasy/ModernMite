@@ -17,9 +17,6 @@
   ],
   "icon": "assets/modernmite/icon.png",
   "entrypoints": {
-    "preLaunch": [
-      "com.github.skystardust.InputMethodBlocker.EarlyRiser"
-    ],
     "main": [
       "moddedmite.modernmite.ModernMite"
     ],

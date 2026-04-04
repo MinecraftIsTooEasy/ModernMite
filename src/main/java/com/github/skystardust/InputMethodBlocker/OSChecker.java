@@ -16,6 +16,7 @@ public class OSChecker {
     }
 
     public enum OSType {
-        WIN_X32, WIN_X64
+        WIN_X32,
+        WIN_X64
     }
 }
