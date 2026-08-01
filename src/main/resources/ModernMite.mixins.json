@@ -10,8 +10,13 @@
   "mixins": [
     "LogAgentMixin",
     "SaveHandlerMixin",
+    "chat.ChatLineMixin",
+    "chat.ChatMessageComponentMixin",
+    "chat.MessageComponentSerializerMixin",
     "client.MinecraftMixin",
     "client.MovementFromOptionsMixin",
+    "client.gui.GuiChatMixin",
+    "client.gui.GuiNewChatMixin",
     "client.gui.GuiOptionsMixin",
     "client.gui.GuiSelectWorldMixin",
     "client.gui.GuiTextFieldMixin",
