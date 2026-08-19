@@ -6,6 +6,9 @@
     "fishmodloader": ">=3.4.0",
     "many-lib": ">=2.2.0"
   },
+  "provides": [
+    "modern-mite"
+  ],
   "environment": "*",
   "name": "ModernMite",
   "description": "Fix some bugs of mite, and bring some modern minecraft client features back to 1.6.4\n修复了mite的一些漏洞, 并将一些高版本mc客户端特性带回1.6.4",

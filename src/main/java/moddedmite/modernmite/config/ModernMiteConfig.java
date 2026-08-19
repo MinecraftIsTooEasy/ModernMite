@@ -7,7 +7,7 @@ import fi.dy.masa.malilib.config.options.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static moddedmite.modernmite.ModernMite.MOD_ID;
+import static moddedmite.modernmite.ModernMite.LEGACY_CONFIG_FILE_NAME;
 
 public class ModernMiteConfig extends SimpleConfigs {
     private static final ModernMiteConfig Instance;
@@ -42,7 +42,6 @@ public class ModernMiteConfig extends SimpleConfigs {
 
 
     // server tweaks
-    public static final ConfigBoolean BetterContainerQuitting = new ConfigBoolean("更好的关闭容器", false, "玩家离开容器时, 物品会先尝试回到背包而不是丢出");
 
 
     // server fix
@@ -74,7 +73,7 @@ public class ModernMiteConfig extends SimpleConfigs {
                 BlockMITEWebRequests
         );
         clientFix = List.of(ResourceLocationFix, CraftingSpeedFix, Packet24Fix);
-        serverTweaks = List.of(BetterContainerQuitting);
+        serverTweaks = List.of();
         serverFix = List.of(DevCurseFix, CraftingKickFix, BoatFallDamageFix, SpiderNPEFix, NetherStarFix, DeathMessageFix);
         values.addAll(clientTweaks);
         values.addAll(clientFix);
@@ -84,9 +83,9 @@ public class ModernMiteConfig extends SimpleConfigs {
         configTabs.add(new ConfigTab("客户端功能", clientTweaks));
         configTabs.add(new ConfigTab("客户端修复", clientFix));
         configTabs.add(new ConfigTab("热键", hotkeys));
-        configTabs.add(new ConfigTab("服务端功能", serverTweaks));
+//        configTabs.add(new ConfigTab("服务端功能", serverTweaks));// empty at present
         configTabs.add(new ConfigTab("服务端修复", serverFix));
-        Instance = new ModernMiteConfig(MOD_ID, hotkeys, values);
+        Instance = new ModernMiteConfig(LEGACY_CONFIG_FILE_NAME, hotkeys, values);
         Instance.load();
     }
 

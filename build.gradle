@@ -104,7 +104,7 @@ publishing {
     publications {
         mavenJava(MavenPublication) {
             groupId = project.maven_group
-            artifactId = project.archives_base_name
+            artifactId = "modern-mite"
             version = project.mod_version
             from components.java
         }

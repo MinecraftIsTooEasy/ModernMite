@@ -8,6 +8,9 @@
 
 * 为聊天组件添加了现代版`open_url`点击事件的序列化与网络传输支持
 * 支持识别并点击聊天中的普通网址，包括带协议、`www.`前缀和无协议域名
+* 删去了功能`更好的关闭容器`, 该功能已被重做进`wise inventory`且为纯客户端性质
+* 模组id自`modern-mite`改为`modernmite`, 但通过`fml.mod.json`仍然提供旧id作为依赖
+* maven地址改为`org.moddedmite.modern-mite`
 
 ---
 
