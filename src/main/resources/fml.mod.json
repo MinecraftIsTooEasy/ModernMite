@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "modern-mite",
+  "id": "modernmite",
   "version": "${version}",
   "depends": {
     "fishmodloader": ">=3.4.0",
