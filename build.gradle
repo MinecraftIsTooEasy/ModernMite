@@ -16,6 +16,7 @@ repositories {
     // Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
     // See https://docs.gradle.org/current/userguide/declaring_repositories.html
     // for more information about repositories.
+    mavenLocal()
     maven {
         name = "ModdedMITE"
         url = uri("https://maven.limingzxc.top/repository/maven-public/")
@@ -35,8 +36,8 @@ dependencies {
     fml "com.github.MinecraftIsTooEasy:FishModLoader:3.4.2"
     implementation "com.github.MinecraftIsTooEasy:FishModLoader:3.4.2"
 
-    implementation "com.github.MinecraftIsTooEasy:RustedIronCore:1.5.0"
-    implementation "com.github.MinecraftIsTooEasy:RustedIronCore:1.5.0:sources"
+    implementation "org.moddedmite:rusted-iron-core:1.5.7"
+    compileOnly "org.moddedmite:rusted-iron-core:1.5.7:sources"
 
     implementation "com.github.MinecraftIsTooEasy:OMMC:1.4.2"
     implementation "com.github.MinecraftIsTooEasy:ManyLib:2.3.0"
