@@ -15,6 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
 @Mixin(Minecraft.class)
 public abstract class MinecraftMixin {
+
     @Shadow
     public EntityClientPlayerMP thePlayer;
     @Shadow
@@ -23,12 +24,19 @@ public abstract class MinecraftMixin {
     @Shadow
     public abstract void displayGuiScreen(GuiScreen par1GuiScreen);
 
-    @Shadow
-    public GuiScreen currentScreen;
-
     @WrapWithCondition(method = "startGame", at = @At(value = "INVOKE", target = "Lnet/minecraft/ReferenceFileWriter;write()V"))
     private boolean doNotWriteReferenceFile() {
         return !ModernMiteConfig.NoReferenceFile.getBooleanValue();
+    }
+
+    @WrapOperation(method = "launchIntegratedServer", at = @At(value = "INVOKE", target = "Lnet/minecraft/NetClientHandler;getNetManager()Lnet/minecraft/INetworkManager;"))
+    private INetworkManager showWorldLoadingScreen(NetClientHandler handler, Operation<INetworkManager> original) {
+        INetworkManager networkManager = original.call(handler);
+        if (ModernMiteConfig.WorldLoadingInputFix.getBooleanValue()) {
+            // Keep queued loading clicks away from the main menu before the login packet arrives.
+            this.displayGuiScreen(new GuiDownloadTerrain(handler));
+        }
+        return networkManager;
     }
 
     @WrapWithCondition(method = "runTick", at = @At(value = "INVOKE", target = "Lnet/minecraft/PlayerControllerMP;toggleRun(Lnet/minecraft/EntityPlayer;)V"))
@@ -49,6 +57,13 @@ public abstract class MinecraftMixin {
         NativeUtils.activeOrInactive(InputMethodHandler.getInstance().shouldActive(screen));
     }
 
+    @Inject(method = "openChat", at = @At("HEAD"), cancellable = true)
+    private void openChatAsScreen(GuiChat chatScreen, CallbackInfo ci) {
+        if (!ModernMiteConfig.VanillaChat.getBooleanValue()) return;
+        this.displayGuiScreen(chatScreen);
+        ci.cancel();
+    }
+
     @Inject(method = "openChat", at = @At("TAIL"))
     private void active(GuiChat chatScreen, CallbackInfo ci) {
         if (ModernMiteConfig.VanillaChat.getBooleanValue()) return;
@@ -64,17 +79,5 @@ public abstract class MinecraftMixin {
     @WrapOperation(method = "clickMouse", at = @At(value = "INVOKE", target = "Lnet/minecraft/GuiScreen;isCtrlKeyDown()Z", ordinal = 0))
     private boolean noAttackDump(Operation<Boolean> original) {
         return !ModernMiteConfig.NoAttackDump.getBooleanValue() && original.call();
-    }
-
-    @Inject(method = "runTick", at = @At("TAIL"))
-    public void allowsImposedChat(CallbackInfo ci) {
-        if (!ModernMiteConfig.VanillaChat.getBooleanValue()) return;
-        while (this.gameSettings.keyBindChat.isPressed() && this.gameSettings.chatVisibility != 2) {
-            this.displayGuiScreen(new GuiChat());
-        }
-
-        if (this.currentScreen == null && this.gameSettings.keyBindCommand.isPressed() && this.gameSettings.chatVisibility != 2) {
-            this.displayGuiScreen(new GuiChat("/"));
-        }
     }
 }

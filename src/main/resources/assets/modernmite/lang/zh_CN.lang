@@ -1,19 +1,79 @@
-config.name.IMBlocker=输入法修复
-config.name.ForceEnableInputMethodGuiScreens=强制启用输入法的屏幕的类路径
+config.menu.name.ModernMite=现代化MITE
+config.menu.comment.ModernMite=现代化MITE的客户端、服务端和修复选项。
 
-config.name.SlashIM=斜杠仍然激活输入法
-config.name.NoSpamLog=去除垃圾日志文件
+config.tab.client_tweaks=客户端功能
+config.tab.client_tweaks.comment=客户端功能与行为设置。
+config.tab.client_fixes=客户端修复
+config.tab.client_fixes.comment=客户端问题修复开关。
+config.tab.hotkeys=热键
+config.tab.hotkeys.comment=配置界面快捷键设置。
+config.tab.server_fixes=服务端修复
+config.tab.server_fixes.comment=服务端问题修复开关。
 
-config.name.NoAttackDump=去除Ctrl弹窗
-config.comment.NoAttackDump=创造模式按下Ctrl攻击时, 不再打开弹窗
+config.name.modernmite.imBlocker=输入法修复
+config.comment.modernmite.imBlocker=根据文本框焦点自动启用或关闭输入法。
 
-config.name.SprintingMode=疾跑模式
+config.name.modernmite.forceEnableInputMethodGuiScreens=强制启用输入法的屏幕的类路径
+config.comment.modernmite.forceEnableInputMethodGuiScreens=填写需要强制启用输入法的界面完整类名，每项一行。
 
-config.name.NoReferenceFile=禁止编写参考文件
-config.comment.NoReferenceFile=即MITE/reference目录的文件, 这会稍微提升游戏启动速度
+config.name.modernmite.slashIM=斜杠仍然激活输入法
+config.comment.modernmite.slashIM=启用后，输入以斜杠开头的聊天命令时也会启用输入法。
 
-config.name.VanillaChat=原版聊天页面
-config.comment.VanillaChat=打开聊天界面暂停玩家行为，并不再锁定鼠标指针
+config.name.modernmite.noSpamLog=去除垃圾日志文件
+config.comment.modernmite.noSpamLog=禁用MITE额外日志记录器的初始化。
 
-config.enum.SprintingMode.Press=按住
-config.enum.SprintingMode.Toggle=切换
+config.name.modernmite.noAttackDump=去除Ctrl弹窗
+config.comment.modernmite.noAttackDump=创造模式按下Ctrl攻击时, 不再打开弹窗
+
+config.name.modernmite.sprintingMode=疾跑模式
+config.comment.modernmite.sprintingMode=选择按住疾跑键疾跑，或切换疾跑状态。
+config.enum.modernmite.sprintingMode.Press=按住
+config.enum.modernmite.sprintingMode.Toggle=切换
+
+config.name.modernmite.noReferenceFile=禁止编写参考文件
+config.comment.modernmite.noReferenceFile=即MITE/reference目录的文件, 这会稍微提升游戏启动速度
+
+config.name.modernmite.vanillaChat=原版聊天页面
+config.comment.modernmite.vanillaChat=打开聊天界面暂停玩家行为，并不再锁定鼠标指针
+
+config.name.modernmite.modChangeWarning=模组更改警告
+config.comment.modernmite.modChangeWarning=模组列表发生变化后加载旧存档时显示警告。
+
+config.name.modernmite.blockMiteWebRequests=屏蔽MITE网站请求
+config.comment.modernmite.blockMiteWebRequests=屏蔽游戏对 minecraft-is-too-easy.com 的网络请求及相关网页跳转，可消除杀毒软件误报
+
+config.name.modernmite.resourceLocationFix=资源定位修复
+config.comment.modernmite.resourceLocationFix=验证资源定位时跳过空值，避免发生空指针异常。
+
+config.name.modernmite.craftingSpeedFix=合成速度修复
+config.comment.modernmite.craftingSpeedFix=将合成周期的最小值限制为25，避免合成速度过快。
+
+config.name.modernmite.packet24Fix=网络包24修复
+config.comment.modernmite.packet24Fix=收到无法识别的实体生成数据包时取消处理，避免客户端崩溃。
+
+config.name.modernmite.worldLoadingInputFix=世界加载点击穿透修复
+config.comment.modernmite.worldLoadingInputFix=载入单人世界时提前显示地形加载界面，避免加载期间的额外点击触发主菜单按钮并退出游戏。
+
+config.name.modernmite.openWindow=打开配置界面
+config.comment.modernmite.openWindow=打开ModernMITE配置界面的快捷键。
+
+config.name.modernmite.devCurseFix=开发模式诅咒修复
+config.comment.modernmite.devCurseFix=避免开发模式下随机诅咒固定为“不能饮水”。
+
+config.name.modernmite.craftingKickFix=合成掉线修复
+config.comment.modernmite.craftingKickFix=合成结果为空时取消取出处理，避免相关异常导致玩家掉线。
+
+config.name.modernmite.boatFallDamageFix=乘船摔落伤害修复
+config.comment.modernmite.boatFallDamageFix=启用后，乘船时免受摔落伤害。
+
+config.name.modernmite.spiderNpeFix=蜘蛛空指针修复
+config.comment.modernmite.spiderNpeFix=修复蜘蛛更新时射线检测结果为空导致的空指针异常。
+
+config.name.modernmite.netherStarFix=下界之星爆炸免疫
+config.comment.modernmite.netherStarFix=使掉落物形式的下界之星免疫爆炸。
+
+config.name.modernmite.explosionDropFix=爆炸掉落崩溃修复
+config.comment.modernmite.explosionDropFix=修复爆炸摧毁铁砧掉落物时发生的崩溃，并保留其耐久和自定义名称。
+
+config.name.modernmite.deathMessageFix=死亡信息翻译修复
+config.comment.modernmite.deathMessageFix=修复多人服务器上的死亡信息翻译不完整问题。

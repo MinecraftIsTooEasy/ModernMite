@@ -39,13 +39,13 @@ dependencies {
     implementation "org.moddedmite:rusted-iron-core:1.5.7"
     compileOnly "org.moddedmite:rusted-iron-core:1.5.7:sources"
 
-    implementation "com.github.MinecraftIsTooEasy:OMMC:1.4.2"
+    localRuntime "com.github.MinecraftIsTooEasy:OMMC:1.4.2"
     implementation "com.github.MinecraftIsTooEasy:ManyLib:2.3.0"
     implementation "com.github.MinecraftIsTooEasy:ModMenu:10.1.1"
 
     implementation "com.github.MinecraftIsTooEasy:EMI:1.1.24"
-    implementation "com.github.MinecraftIsTooEasy:Gson:2.10.1"
-    implementation "com.github.MinecraftIsTooEasy:FastUtil:8.5.12"
+    localRuntime "com.github.MinecraftIsTooEasy:Gson:2.10.1"
+    localRuntime "com.github.MinecraftIsTooEasy:FastUtil:8.5.12"
 }
 
 def fmlResolvedFile = configurations.fml.files.iterator().next()

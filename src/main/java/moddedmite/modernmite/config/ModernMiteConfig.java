@@ -10,6 +10,7 @@ import java.util.List;
 import static moddedmite.modernmite.ModernMite.LEGACY_CONFIG_FILE_NAME;
 
 public class ModernMiteConfig extends SimpleConfigs {
+
     private static final ModernMiteConfig Instance;
     public static final List<ConfigBase<?>> clientTweaks;
     public static final List<ConfigBase<?>> clientFix;
@@ -19,44 +20,46 @@ public class ModernMiteConfig extends SimpleConfigs {
     public static final List<ConfigHotkey> hotkeys;
 
     // client tweaks
-    public static final ConfigBoolean IMBlocker = new ConfigBoolean("IMBlocker", true);
-    public static final ConfigStringList ForceEnableInputMethodGuiScreens = new ConfigStringList("强制启用输入法的屏幕的类路径", List.of("net.minecraft.GuiScreenBook", "net.minecraft.GuiEditSign", "net.minecraft.GuiContainerCreative"), null);
-    public static final ConfigBoolean SlashIM = new ConfigBoolean("SlashIM");
-    public static final ConfigBoolean NoSpamLog = new ConfigBoolean("NoSpamLog", true);
-    public static final ConfigBoolean NoAttackDump = new ConfigBoolean("NoAttackDump", false, "创造模式按下Ctrl攻击时, 不再打开弹窗");
-    public static final ConfigEnum<EnumSprintingMode> SprintingMode = new ConfigEnum<>("SprintingMode", EnumSprintingMode.Toggle);
-    public static final ConfigBoolean NoReferenceFile = new ConfigBoolean("NoReferenceFile", true, "即MITE/reference目录的文件, 这会稍微提升游戏启动速度");
-    public static final ConfigBoolean VanillaChat = new ConfigBoolean("VanillaChat", false, "打开聊天界面暂停玩家行为，并不再锁定鼠标指针");
-    public static final ConfigBoolean ModChangeWarning = new ConfigBoolean("模组更改警告", true, "当你更改模组后进入旧存档时会警告");
-    public static final ConfigBoolean BlockMITEWebRequests = new ConfigBoolean("屏蔽MITE网站请求", true, "屏蔽游戏对 minecraft-is-too-easy.com 的网络请求及相关网页跳转，可消除杀毒软件误报");
+    public static final ConfigBoolean IMBlocker = new ConfigBoolean("modernmite.imBlocker", true, "config.comment.modernmite.imBlocker");
+    public static final ConfigStringList ForceEnableInputMethodGuiScreens = new ConfigStringList("modernmite.forceEnableInputMethodGuiScreens", List.of("net.minecraft.GuiScreenBook", "net.minecraft.GuiEditSign", "net.minecraft.GuiContainerCreative"), "config.comment.modernmite.forceEnableInputMethodGuiScreens");
+    public static final ConfigBoolean SlashIM = new ConfigBoolean("modernmite.slashIM", false, "config.comment.modernmite.slashIM");
+    public static final ConfigBoolean NoSpamLog = new ConfigBoolean("modernmite.noSpamLog", true, "config.comment.modernmite.noSpamLog");
+    public static final ConfigBoolean NoAttackDump = new ConfigBoolean("modernmite.noAttackDump", false, "config.comment.modernmite.noAttackDump");
+    public static final ConfigEnum<EnumSprintingMode> SprintingMode = new ConfigEnum<>("modernmite.sprintingMode", EnumSprintingMode.Toggle, "config.comment.modernmite.sprintingMode");
+    public static final ConfigBoolean NoReferenceFile = new ConfigBoolean("modernmite.noReferenceFile", true, "config.comment.modernmite.noReferenceFile");
+    public static final ConfigBoolean VanillaChat = new ConfigBoolean("modernmite.vanillaChat", false, "config.comment.modernmite.vanillaChat");
+    public static final ConfigBoolean ModChangeWarning = new ConfigBoolean("modernmite.modChangeWarning", true, "config.comment.modernmite.modChangeWarning");
+    public static final ConfigBoolean BlockMITEWebRequests = new ConfigBoolean("modernmite.blockMiteWebRequests", true, "config.comment.modernmite.blockMiteWebRequests");
 
 
     // client fix
-    public static final ConfigBoolean ResourceLocationFix = new ConfigBoolean("资源定位修复", true, "空指针问题");
-    public static final ConfigBoolean CraftingSpeedFix = new ConfigBoolean("合成速度修复", true);
-    public static final ConfigBoolean Packet24Fix = new ConfigBoolean("网络包24修复", true);
+    public static final ConfigBoolean ResourceLocationFix = new ConfigBoolean("modernmite.resourceLocationFix", true, "config.comment.modernmite.resourceLocationFix");
+    public static final ConfigBoolean CraftingSpeedFix = new ConfigBoolean("modernmite.craftingSpeedFix", true, "config.comment.modernmite.craftingSpeedFix");
+    public static final ConfigBoolean Packet24Fix = new ConfigBoolean("modernmite.packet24Fix", true, "config.comment.modernmite.packet24Fix");
+    public static final ConfigBoolean WorldLoadingInputFix = new ConfigBoolean("modernmite.worldLoadingInputFix", true, "config.comment.modernmite.worldLoadingInputFix");
 
 
     // hotkey
-    public static final ConfigHotkey OpenWindow = new ConfigHotkey("打开配置屏幕", "H,C", null);
+    public static final ConfigHotkey OpenWindow = new ConfigHotkey("modernmite.openWindow", "H,C", "config.comment.modernmite.openWindow");
 
 
     // server tweaks
 
 
     // server fix
-    public static final ConfigBoolean DevCurseFix = new ConfigBoolean("Dev诅咒修复", true);
-    public static final ConfigBoolean CraftingKickFix = new ConfigBoolean("合成踢出修复", true);
-    public static final ConfigBoolean BoatFallDamageFix = new ConfigBoolean("乘船摔伤修复", false, "乘船时免受摔落伤害");
-    public static final ConfigBoolean SpiderNPEFix = new ConfigBoolean("蜘蛛空指针修复", true);
-    public static final ConfigBoolean NetherStarFix = new ConfigBoolean("下界之星修复", true, "使其对爆炸免疫");
-    public static final ConfigBoolean DeathMessageFix = new ConfigBoolean("死亡信息修复", true, "修复了在服务器上只能翻译一半的问题");
+    public static final ConfigBoolean DevCurseFix = new ConfigBoolean("modernmite.devCurseFix", true, "config.comment.modernmite.devCurseFix");
+    public static final ConfigBoolean CraftingKickFix = new ConfigBoolean("modernmite.craftingKickFix", true, "config.comment.modernmite.craftingKickFix");
+    public static final ConfigBoolean BoatFallDamageFix = new ConfigBoolean("modernmite.boatFallDamageFix", false, "config.comment.modernmite.boatFallDamageFix");
+    public static final ConfigBoolean SpiderNPEFix = new ConfigBoolean("modernmite.spiderNpeFix", true, "config.comment.modernmite.spiderNpeFix");
+    public static final ConfigBoolean NetherStarFix = new ConfigBoolean("modernmite.netherStarFix", true, "config.comment.modernmite.netherStarFix");
+    public static final ConfigBoolean ExplosionDropFix = new ConfigBoolean("modernmite.explosionDropFix", true, "config.comment.modernmite.explosionDropFix");
+    public static final ConfigBoolean DeathMessageFix = new ConfigBoolean("modernmite.deathMessageFix", true, "config.comment.modernmite.deathMessageFix");
 
 
     public static final List<ConfigTab> configTabs = new ArrayList<>();
 
     public ModernMiteConfig(String name, List<ConfigHotkey> hotkeys, List<ConfigBase<?>> values) {
-        super(name, hotkeys, values);
+        super(name, hotkeys, values, "config.menu.comment." + name);
     }
 
     static {
@@ -72,19 +75,19 @@ public class ModernMiteConfig extends SimpleConfigs {
                 ModChangeWarning,
                 BlockMITEWebRequests
         );
-        clientFix = List.of(ResourceLocationFix, CraftingSpeedFix, Packet24Fix);
+        clientFix = List.of(ResourceLocationFix, CraftingSpeedFix, Packet24Fix, WorldLoadingInputFix);
         serverTweaks = List.of();
-        serverFix = List.of(DevCurseFix, CraftingKickFix, BoatFallDamageFix, SpiderNPEFix, NetherStarFix, DeathMessageFix);
+        serverFix = List.of(DevCurseFix, CraftingKickFix, BoatFallDamageFix, SpiderNPEFix, NetherStarFix, ExplosionDropFix, DeathMessageFix);
         values.addAll(clientTweaks);
         values.addAll(clientFix);
         values.addAll(serverTweaks);
         values.addAll(serverFix);
         hotkeys = List.of(OpenWindow);
-        configTabs.add(new ConfigTab("客户端功能", clientTweaks));
-        configTabs.add(new ConfigTab("客户端修复", clientFix));
-        configTabs.add(new ConfigTab("热键", hotkeys));
+        configTabs.add(new ConfigTab("client_tweaks", clientTweaks));
+        configTabs.add(new ConfigTab("client_fixes", clientFix));
+        configTabs.add(new ConfigTab("hotkeys", hotkeys));
 //        configTabs.add(new ConfigTab("服务端功能", serverTweaks));// empty at present
-        configTabs.add(new ConfigTab("服务端修复", serverFix));
+        configTabs.add(new ConfigTab("server_fixes", serverFix));
         Instance = new ModernMiteConfig(LEGACY_CONFIG_FILE_NAME, hotkeys, values);
         Instance.load();
     }

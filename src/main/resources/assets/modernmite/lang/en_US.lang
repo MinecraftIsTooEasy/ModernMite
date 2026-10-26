@@ -1,19 +1,79 @@
-config.name.IMBlocker=Input Method Fix
-config.name.ForceEnableInputMethodGuiScreens=Class paths of those screens needs activating the IM(Chinese)
+config.menu.name.ModernMite=ModernMITE
+config.menu.comment.ModernMite=ModernMITE client, server, and bug-fix options.
 
-config.name.SlashIM=Slash Activates IM
-config.name.NoSpamLog=No Spam Log
+config.tab.client_tweaks=Client Features
+config.tab.client_tweaks.comment=Client-side features and behavior settings.
+config.tab.client_fixes=Client Fixes
+config.tab.client_fixes.comment=Client-side fix toggles.
+config.tab.hotkeys=Hotkeys
+config.tab.hotkeys.comment=Shortcut settings for the configuration screen.
+config.tab.server_fixes=Server Fixes
+config.tab.server_fixes.comment=Server-side fix toggles.
 
-config.name.NoAttackDump=No Attack Dump
-config.comment.NoAttackDump=Wont dump the report when attacking entities with Ctrl pressed
+config.name.modernmite.imBlocker=Input Method Fix
+config.comment.modernmite.imBlocker=Automatically activate or deactivate the input method based on text-field focus.
 
-config.name.SprintingMode=Sprinting Mode
+config.name.modernmite.forceEnableInputMethodGuiScreens=Class paths of those screens needs activating the IM(Chinese)
+config.comment.modernmite.forceEnableInputMethodGuiScreens=Fully qualified GUI class names that should force the input method on, one per entry.
 
-config.name.NoReferenceFile=No Reference File
-config.comment.NoReferenceFile=The files in MITE/reference.
+config.name.modernmite.slashIM=Slash Activates IM
+config.comment.modernmite.slashIM=Also activate the input method while entering slash-prefixed chat commands.
 
-config.name.VanillaChat=Vanilla Chat
-config.comment.VanillaChat=Opens the chat gui to pause player behavior and no longer locks the mouse pointer
+config.name.modernmite.noSpamLog=No Spam Log
+config.comment.modernmite.noSpamLog=Disable initialization of MITE's extra loggers.
 
-config.enum.SprintingMode.Press=Press
-config.enum.SprintingMode.Toggle=Toggle
+config.name.modernmite.noAttackDump=No Attack Dump
+config.comment.modernmite.noAttackDump=Wont dump the report when attacking entities with Ctrl pressed
+
+config.name.modernmite.sprintingMode=Sprinting Mode
+config.comment.modernmite.sprintingMode=Choose whether sprinting is held or toggled.
+config.enum.modernmite.sprintingMode.Press=Press
+config.enum.modernmite.sprintingMode.Toggle=Toggle
+
+config.name.modernmite.noReferenceFile=No Reference File
+config.comment.modernmite.noReferenceFile=The files in MITE/reference.
+
+config.name.modernmite.vanillaChat=Vanilla Chat
+config.comment.modernmite.vanillaChat=Opens the chat gui to pause player behavior and no longer locks the mouse pointer
+
+config.name.modernmite.modChangeWarning=Mod Change Warning
+config.comment.modernmite.modChangeWarning=Show a warning when loading an existing world after the mod list changes.
+
+config.name.modernmite.blockMiteWebRequests=Block MITE Website Requests
+config.comment.modernmite.blockMiteWebRequests=Block requests to minecraft-is-too-easy.com and related browser redirects to avoid antivirus false positives.
+
+config.name.modernmite.resourceLocationFix=Resource Location Fix
+config.comment.modernmite.resourceLocationFix=Skip null resource locations during validation to prevent a null pointer exception.
+
+config.name.modernmite.craftingSpeedFix=Crafting Speed Fix
+config.comment.modernmite.craftingSpeedFix=Clamp the crafting period to at least 25 to prevent excessively fast crafting.
+
+config.name.modernmite.packet24Fix=Packet 24 Fix
+config.comment.modernmite.packet24Fix=Cancel handling of entity spawn packets for unknown entity types to prevent a client crash.
+
+config.name.modernmite.worldLoadingInputFix=World Loading Click-Through Fix
+config.comment.modernmite.worldLoadingInputFix=Show the terrain loading screen before joining a singleplayer world to prevent clicks made during loading from activating main-menu buttons and quitting the game.
+
+config.name.modernmite.openWindow=Open Configuration Screen
+config.comment.modernmite.openWindow=Hotkey that opens the ModernMITE configuration screen.
+
+config.name.modernmite.devCurseFix=Development-Mode Curse Fix
+config.comment.modernmite.devCurseFix=Prevent the Cannot Drink curse from being forced in development mode.
+
+config.name.modernmite.craftingKickFix=Crafting Disconnect Fix
+config.comment.modernmite.craftingKickFix=Cancel result pickup when the crafting result is null to prevent the related disconnect.
+
+config.name.modernmite.boatFallDamageFix=Boat Fall Damage Fix
+config.comment.modernmite.boatFallDamageFix=Prevent fall damage while riding a boat.
+
+config.name.modernmite.spiderNpeFix=Spider Null Pointer Fix
+config.comment.modernmite.spiderNpeFix=Prevent a null raycast result from causing a null pointer exception during spider updates.
+
+config.name.modernmite.netherStarFix=Nether Star Explosion Immunity
+config.comment.modernmite.netherStarFix=Make dropped Nether Stars immune to explosions.
+
+config.name.modernmite.explosionDropFix=Explosion Drop Crash Fix
+config.comment.modernmite.explosionDropFix=Fix crashes when explosions destroy dropped anvils, preserving their damage and custom names.
+
+config.name.modernmite.deathMessageFix=Death Message Translation Fix
+config.comment.modernmite.deathMessageFix=Fix incomplete death-message translations on multiplayer servers.
