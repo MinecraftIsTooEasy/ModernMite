@@ -20,17 +20,17 @@ public class MixinPlugin implements IMixinConfigPlugin {
     }
 
     @Override
-    public boolean shouldApplyMixin(String s, String s1) {
-        if (s.equals("net.minecraft.Packet")) {
+    public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
+        if (targetClassName.equals("net.minecraft.Packet")) {
             return ModernMiteConfigEarly.ReadStringFix.get();
         }
-        if (s.equals("net.minecraft.NBTTagCompound")) {
+        if (targetClassName.equals("net.minecraft.NBTTagCompound")) {
             return ModernMiteConfigEarly.AchievementFix.get();
         }
-        if (s.equals("net.minecraft.ServerPlayer")) {
+        if (targetClassName.equals("net.minecraft.ServerPlayer")) {
             return ModernMiteConfigEarly.AchievementFix.get();
         }
-        if (s.equals("net.minecraft.WorldInfoShared")) {
+        if (targetClassName.equals("net.minecraft.WorldInfoShared")) {
             return ModernMiteConfigEarly.AchievementFix.get();
         }
         return true;

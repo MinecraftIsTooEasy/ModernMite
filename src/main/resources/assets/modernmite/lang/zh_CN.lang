@@ -77,3 +77,8 @@ config.comment.modernmite.explosionDropFix=修复爆炸摧毁铁砧掉落物时�
 
 config.name.modernmite.deathMessageFix=死亡信息翻译修复
 config.comment.modernmite.deathMessageFix=修复多人服务器上的死亡信息翻译不完整问题。
+
+item.fishCodRaw.name=生鳕鱼
+item.fishCodCooked.name=熟鳕鱼
+item.fishSalmonRaw.name=生鲑鱼
+item.fishSalmonCooked.name=熟鲑鱼

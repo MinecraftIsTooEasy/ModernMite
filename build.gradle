@@ -39,7 +39,8 @@ dependencies {
     implementation "org.moddedmite:rusted-iron-core:1.5.7"
     compileOnly "org.moddedmite:rusted-iron-core:1.5.7:sources"
 
-    localRuntime "com.github.MinecraftIsTooEasy:OMMC:1.4.2"
+    localRuntime "org.moddedmite:omc:3.0.0"
+    localRuntime "org.moddedmite:ommc:1.4.5"
     implementation "com.github.MinecraftIsTooEasy:ManyLib:2.3.0"
     implementation "com.github.MinecraftIsTooEasy:ModMenu:10.1.1"
 

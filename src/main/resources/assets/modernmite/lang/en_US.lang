@@ -77,3 +77,8 @@ config.comment.modernmite.explosionDropFix=Fix crashes when explosions destroy d
 
 config.name.modernmite.deathMessageFix=Death Message Translation Fix
 config.comment.modernmite.deathMessageFix=Fix incomplete death-message translations on multiplayer servers.
+
+item.fishCodRaw.name=Raw Cod
+item.fishCodCooked.name=Cooked Cod
+item.fishSalmonRaw.name=Raw Salmon
+item.fishSalmonCooked.name=Cooked Salmon
