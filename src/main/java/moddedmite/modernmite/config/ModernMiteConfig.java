@@ -27,7 +27,7 @@ public class ModernMiteConfig extends SimpleConfigs {
     public static final ConfigBoolean NoAttackDump = new ConfigBoolean("modernmite.noAttackDump", false, "config.comment.modernmite.noAttackDump");
     public static final ConfigEnum<EnumSprintingMode> SprintingMode = new ConfigEnum<>("modernmite.sprintingMode", EnumSprintingMode.Toggle, "config.comment.modernmite.sprintingMode");
     public static final ConfigBoolean NoReferenceFile = new ConfigBoolean("modernmite.noReferenceFile", true, "config.comment.modernmite.noReferenceFile");
-    public static final ConfigBoolean VanillaChat = new ConfigBoolean("modernmite.vanillaChat", false, "config.comment.modernmite.vanillaChat");
+    public static final ConfigBoolean VanillaChat = new ConfigBoolean("modernmite.vanillaChat", true, "config.comment.modernmite.vanillaChat");
     public static final ConfigBoolean ModChangeWarning = new ConfigBoolean("modernmite.modChangeWarning", true, "config.comment.modernmite.modChangeWarning");
     public static final ConfigBoolean BlockMITEWebRequests = new ConfigBoolean("modernmite.blockMiteWebRequests", true, "config.comment.modernmite.blockMiteWebRequests");
 
