@@ -1,6 +1,7 @@
 package moddedmite.modernmite.compat;
 
 import moddedmite.modernmite.config.ModernMiteConfigEarly;
+import net.xiaoyu233.fml.FishModLoader;
 import org.objectweb.asm.tree.ClassNode;
 import org.spongepowered.asm.mixin.extensibility.IMixinConfigPlugin;
 import org.spongepowered.asm.mixin.extensibility.IMixinInfo;
@@ -9,6 +10,7 @@ import java.util.List;
 import java.util.Set;
 
 public class MixinPlugin implements IMixinConfigPlugin {
+
     @Override
     public void onLoad(String s) {
 
@@ -21,6 +23,9 @@ public class MixinPlugin implements IMixinConfigPlugin {
 
     @Override
     public boolean shouldApplyMixin(String targetClassName, String mixinClassName) {
+        if (mixinClassName.equals("moddedmite.modernmite.mixins.client.FontRendererMixin")) {
+            return !FishModLoader.hasMod("better_game_setting");
+        }
         if (targetClassName.equals("net.minecraft.Packet")) {
             return ModernMiteConfigEarly.ReadStringFix.get();
         }

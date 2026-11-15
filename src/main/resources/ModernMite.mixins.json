@@ -31,5 +31,8 @@
     "fix.StatFix",
     "network.NetClientHandlerMixin"
   ],
+  "client": [
+    "client.FontRendererMixin"
+  ],
   "plugin": "moddedmite.modernmite.compat.MixinPlugin"
 }
