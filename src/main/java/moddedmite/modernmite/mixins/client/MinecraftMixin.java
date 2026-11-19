@@ -1,5 +1,6 @@
 package moddedmite.modernmite.mixins.client;
 
+import moddedmite.modernmite.client.gui.GuiWorldLoading;
 import moddedmite.modernmite.config.ModernMiteConfig;
 import com.github.skystardust.InputMethodBlocker.NativeUtils;
 import com.github.skystardust.InputMethodBlocker.compat.InputMethodHandler;
@@ -10,7 +11,6 @@ import net.minecraft.EntityClientPlayerMP;
 import net.minecraft.EntityPlayer;
 import net.minecraft.GameSettings;
 import net.minecraft.GuiChat;
-import net.minecraft.GuiDownloadTerrain;
 import net.minecraft.GuiScreen;
 import net.minecraft.INetworkManager;
 import net.minecraft.Minecraft;
@@ -47,7 +47,7 @@ public abstract class MinecraftMixin {
         INetworkManager networkManager = original.call(handler);
         if (ModernMiteConfig.WorldLoadingInputFix.getBooleanValue()) {
             // Keep queued loading clicks away from the main menu before the login packet arrives.
-            this.displayGuiScreen(new GuiDownloadTerrain(handler));
+            this.displayGuiScreen(new GuiWorldLoading(handler));
         }
         return networkManager;
     }
